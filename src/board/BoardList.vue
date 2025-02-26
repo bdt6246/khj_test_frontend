@@ -3,8 +3,10 @@ import { onMounted, computed, ref } from 'vue'
 import { useBoardListStore } from '../stores/useBoardListStore';
 import { useLoadingStore } from '../stores/useLoadingStore';
 
+const router = useRouter();
 const boardListStore = useBoardListStore();
 const loadingStore = useLoadingStore();
+import {useRouter} from 'vue-router'
 
 onMounted(async () => {
     loadingStore.startLoading();
@@ -12,6 +14,9 @@ onMounted(async () => {
     loadingStore.stopLoading();
 });
 
+const boardClick = (idx) =>{
+    router.push(`/board/${idx}`);
+}
 </script>
 
 <template>
@@ -23,10 +28,13 @@ onMounted(async () => {
             <li> 댓글 수 </li>
         </ul>
         <ul class="contentbar" v-for="board in boardListStore.boardList">
-            <li>  {{ board.idx }} </li>
+            <div @click="boardClick(board.idx)">
+                <li>  {{ board.idx }} </li>
             <li> {{board.title}}</li>
             <li> {{board.writer}}</li>
             <li> {{ board.commentCnt }} </li>
+            </div>
+
         </ul>
     </div>
 </template>
