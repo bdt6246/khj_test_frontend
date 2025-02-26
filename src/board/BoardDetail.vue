@@ -2,13 +2,14 @@
 import { onMounted, computed, ref } from 'vue'
 import { useBoardDetailStore } from '../stores/useBoardDetailStore';
 import { useLoadingStore } from '../stores/useLoadingStore';
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useCommentRegisterStore }  from '../stores/useCommentRegisterStore';
 
 const boardDetailStore = useBoardDetailStore();
 const commentRegisterStore = useCommentRegisterStore();
 const loadingStore = useLoadingStore();
 const route = useRoute();
+const router = useRouter();
 
 onMounted(async () => {
     const idx = route.params.idx;
@@ -31,6 +32,10 @@ const commentRegister = async (idx) =>{
     });
     window.location.reload();
 };
+
+const navigateBoardList = () =>{
+    router.push(`/`);
+}
 
 </script>
 <template>
@@ -56,6 +61,7 @@ const commentRegister = async (idx) =>{
             </div>
         </div>
     </div>
+    <button @click="navigateBoardList">목록으로</button>
 </template>
 
 <style scoped>

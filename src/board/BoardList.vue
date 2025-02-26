@@ -2,11 +2,11 @@
 import { onMounted, computed, ref } from 'vue'
 import { useBoardListStore } from '../stores/useBoardListStore';
 import { useLoadingStore } from '../stores/useLoadingStore';
+import {useRouter} from 'vue-router'
 
 const router = useRouter();
 const boardListStore = useBoardListStore();
 const loadingStore = useLoadingStore();
-import {useRouter} from 'vue-router'
 
 onMounted(async () => {
     loadingStore.startLoading();
