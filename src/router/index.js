@@ -1,16 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
+import BoardList from "../board/BoardList.vue"
+import BoardDetail from "../board/BoardDetail.vue"
+
+// Routes Configuration
+const routes = [
+    {path: "/", component: BoardList,},
+    { path: "/board/:idx", component: BoardDetail },
+    
+];
 
 const router = createRouter({
     history: createWebHistory(),
-    routes: [
-    {
-        path: "/board/list",
-        component: () => import("@/board/BoardList.vue"),
-    },
-    {
-        path: "/board/:idx",
-        component: () => import("@/board/BoardDetail.vue"),
-    },
-    ],
+    routes,
 });
+
 export default router;
