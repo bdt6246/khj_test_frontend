@@ -17,6 +17,10 @@ onMounted(async () => {
 const boardClick = (idx) =>{
     router.push(`/board/${idx}`);
 }
+
+const registerBtn = () =>{
+    router.push(`/board/register`);
+}
 </script>
 
 <template>
@@ -34,8 +38,12 @@ const boardClick = (idx) =>{
             <li> {{board.writer}}</li>
             <li> {{ board.commentCnt }} </li>
             </div>
-
         </ul>
+    </div>
+    <div>
+        <button @click="registerBtn()">
+        게시글 등록하기
+    </button>
     </div>
 </template>
 
