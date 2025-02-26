@@ -12,8 +12,6 @@ onMounted(async () => {
     loadingStore.stopLoading();
 });
 
-console.log(boardListStore.boardList);
-
 </script>
 
 <template>
@@ -52,14 +50,7 @@ padding: 0px;
     	   width: 131px;
 
     	   float: left;
-
-    	   background-color: black;
-
-    	   color: white;
-
     	   text-align: center;
-
-    	   border-left: 1px solid white;
 
 	} 
     .contentbar li{ 
@@ -74,13 +65,9 @@ list-style: none;
 
     	   float: left;
 
-           background-color: gray;
-
     	   color: black;
 
     	   text-align: center;
-
-    	   border-left: 1px solid black;
 
 	}
 </style>
